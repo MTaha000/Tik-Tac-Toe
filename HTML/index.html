@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Tik Tac Toe Game</title>
+</head>
+
+<body>
+    <div class="main-display">
+        <div class="heading">
+            <div class="title">
+                <h1>Tic Tac Toe</h1>
+            </div>
+            <div>
+            <h1>This Game Have 2 Types</h1>
+            <h2>Please Select One And Play The Game</h2>
+        </div>
+        </div>
+        <div class="displaybtn">
+            <button class="singlebtn" onclick="singlePlay()">Single Play</button>
+            <button class="doublebtn" onclick="doublePlay()">Double Play</button>
+        </div>
+    </div>
+    <div class="main-container inactive">
+        <div class="playersturn">
+            <div class="player1 active">O' Turn</div>
+            <div class="player2 ">X' Turn</div>
+        </div>
+        <div class="game-board">
+            <div class="boxes">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>
+        <div class="result inactive">
+            <h1></h1>
+            <button id="restartBtn" onclick="location.reload()">Restart</button>
+        </div>
+    </div>
+    <script>
+        let mainContainer = document.querySelector(".main-container")
+        let mainDisplay = document.querySelector(".main-display")
+        let singlePlayer = false
+        function singlePlay(){
+            mainDisplay.classList.add("inactive")
+            mainContainer.classList.remove("inactive")
+            singlePlayer = true;
+        }
+        function doublePlay(){
+            mainDisplay.classList.add("inactive")
+            mainContainer.classList.remove("inactive")
+            
+        }
+
+        let boxElements = document.querySelectorAll(".box")
+        let player1 = document.querySelector(".player1")
+        let player2 = document.querySelector(".player2")
+        let playerW = "O"
+        let playerX = "X"
+        let toggleTurn = true;
+        let winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ]
+        let result = document.querySelector(".result")
+        let resultText = document.querySelector(".result h1")
+        let currentPlayer;
+          currentPlayer = toggleTurn ? playerW : playerX
+        
+        
+        boxElements.forEach(box => {
+            
+            
+            box.onclick = () => {
+                if(singlePlayer && currentPlayer == playerX){
+                   
+                    return
+                }
+            
+                box.classList.add("disable")
+                box.innerHTML = currentPlayer
+                box.classList.add(currentPlayer)
+                if (winnerCheck(currentPlayer)) {
+                    resultText.innerHTML = currentPlayer + " Win The Game"
+                    result.classList.remove("inactive")
+                } else if (isDraw()) {
+                    resultText.innerHTML = "Draw The Game"
+                    result.classList.remove("inactive")
+                }
+                swapPlayer()
+            if(singlePlayer && result.classList.contains("inactive")){
+                cpuTurn()
+                if (winnerCheck(playerX)) {
+                    resultText.innerHTML = playerX + " Win The Game"
+                    result.classList.remove("inactive")
+                } else if (isDraw()) {
+                    resultText.innerHTML = "Draw The Game"
+                    result.classList.remove("inactive")
+                }
+            }
+        }
+        })
+        function cpuTurn(){
+            let cpu = Math.floor( Math.random() * 9 )
+            let cpuBox = boxElements[cpu]
+            if(!cpuBox.classList.contains("disable")){
+            
+                cpuBox.innerHTML = playerX
+                cpuBox.classList.add("disable")
+                cpuBox.classList.add(playerX)
+                swapPlayer()
+               
+            }else{
+                cpuTurn()
+            }
+        }
+        function swapPlayer() {
+            toggleTurn = !toggleTurn
+            if (toggleTurn) {
+                player1.classList.add("active")
+                player2.classList.remove("active")
+            } else {
+                player2.classList.add("active")
+                player1.classList.remove("active")
+            }
+            currentPlayer = toggleTurn ? playerW : playerX
+        }
+
+        function winnerCheck(currentPlayer) {
+            return winningConditions.some(condition => {
+
+                return condition.every(index => {
+                    return boxElements[index].classList.contains(currentPlayer)
+
+                })
+            })
+        }
+
+        function isDraw() {
+
+            return Array.from(boxElements).every(cell => {
+                console.log(cell);
+                return cell.classList.contains(playerW) || cell.classList.contains(playerX)
+
+            })
+        }
+
+    </script>
+</body>
+
+</html>
