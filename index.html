@@ -66,7 +66,7 @@
         let boxElements = document.querySelectorAll(".box")
         let player1 = document.querySelector(".player1")
         let player2 = document.querySelector(".player2")
-        let playerW = "O"
+        let playerO = "O"
         let playerX = "X"
         let toggleTurn = true;
         let winningConditions = [
@@ -82,7 +82,7 @@
         let result = document.querySelector(".result")
         let resultText = document.querySelector(".result h1")
         let currentPlayer;
-          currentPlayer = toggleTurn ? playerW : playerX
+          currentPlayer = toggleTurn ? playerO : playerX
         
         
         boxElements.forEach(box => {
@@ -91,7 +91,7 @@
             box.onclick = () => {
                 if(singlePlayer && currentPlayer == playerX){
                    
-                    return
+                    return 
                 }
             
                 box.classList.add("disable")
@@ -140,7 +140,7 @@
                 player2.classList.add("active")
                 player1.classList.remove("active")
             }
-            currentPlayer = toggleTurn ? playerW : playerX
+            currentPlayer = toggleTurn ? playerO : playerX
         }
 
         function winnerCheck(currentPlayer) {
@@ -156,8 +156,8 @@
         function isDraw() {
 
             return Array.from(boxElements).every(cell => {
-                console.log(cell);
-                return cell.classList.contains(playerW) || cell.classList.contains(playerX)
+                
+                return cell.classList.contains(playerO) || cell.classList.contains(playerX)
 
             })
         }
