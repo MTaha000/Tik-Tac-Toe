@@ -1,112 +1,121 @@
-@media(max-width: 800px){
-    .main-display .heading{
+@media(max-width: 800px) {
+    .main-display .heading {
         font-size: 18px;
     }
-    .title{
-        font-size: 40px;
-    }
-    .singlebtn{
+
+    .singlebtn {
         font-size: 18px;
     }
-    .doublebtn{
+
+    .doublebtn {
         font-size: 18px;
     }
 }
-@media(max-width: 585px){
-    .main-display .heading{
+
+@media(max-width: 585px) {
+    .main-display .heading {
         font-size: 13px;
+        padding-top: 20px;
     }
-    .title{
-        font-size: 30px;
+
+    .singlebtn {
+        font-size: 14px;
     }
-    .singlebtn{
-        font-size: 13px;
+
+    .doublebtn {
+        font-size: 14px;
     }
-    .doublebtn{
-        font-size: 13px;
-    }
-    .box{
+
+    .box {
         width: 140px;
         height: 120px;
         border: 4px solid rgb(229, 231, 238);
         font-size: 80px;
-}
+    }
 }
 
-@media(max-width: 420px){
-    .main-display .heading{
-        font-size: 11px;
-    }
-    .title{
-        font-size: 25px;
-    }
-    .singlebtn{
-        font-size: 12px;
-    }
-    .doublebtn{
-        font-size: 11px;
-    }
-    .result h1{
-        font-size: 40px;
-}
-}
-@media(max-width: 350px){
-    .main-display .heading{
-        font-size: 9px;
-    }
-    .title{
-        font-size: 20px;
-    }
-    .singlebtn{
-        font-size: 10px;
-    }
-    .doublebtn{
-        font-size: 10px;
-    }
-    .result h1{
-        font-size: 30px;
-}
-.result button{
-    padding: 8px 20px;
-    font-size: 16px;
-    
-}
-}
 /*GAME BOARD*/
-@media(max-width: 450px){
-    .boxes{
+@media(max-width: 450px) {
+    .boxes {
         width: 300px;
     }
-    .box{
+
+    .box {
         width: 100px;
         height: 100px;
         border: 2px solid rgb(229, 231, 238);
         font-size: 65px;
+    }
+
+    .playersturn {
+        font-size: 18px;
+    }
+
+    .main-display {
+        background-attachment: fixed;
+        background-position: ;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+    }
+
+    .main-display .heading div {
+        text-align: center;
+        font-size: 12px;
+        padding: 30px 25px;
+    }
 }
-.playersturn{
-    font-size: 18px;
-}
-}
-@media(max-width: 310px){
-    .boxes{
+
+@media(max-width: 350px) {
+    .main-display .heading {
+        font-size: 10px;
+    }
+
+    .singlebtn {
+        font-size: 12px;
+    }
+
+    .doublebtn {
+        font-size: 12px;
+    }
+
+    .result h1 {
+        font-size: 30px;
+    }
+
+    .result button {
+        padding: 8px 20px;
+        font-size: 16px;
+
+    }
+
+    .boxes {
         width: 250px;
     }
-    .box{
+
+    .box {
         width: 80px;
         height: 80px;
         border: 2px solid rgb(229, 231, 238);
         font-size: 50px;
-}
-.playersturn{
-    font-size: 14px;
-    width: 200px;
-    height: 55px;
-}
-.player1{
-    padding: 10px 10px;
-}
-.player2{
-    padding: 10px 10px;
-}
-}
+    }
 
+    .playersturn {
+        font-size: 14px;
+        width: 200px;
+        height: 55px;
+    }
+
+    .player1 {
+        padding: 10px 10px;
+    }
+
+    .player2 {
+        padding: 10px 10px;
+    }
+
+    .main-display .heading div {
+        font-size: 10px;
+        padding: 20px 25px;
+    }
+}

@@ -12,9 +12,6 @@
 <body>
     <div class="main-display">
         <div class="heading">
-            <div class="title">
-                <h1>Tic Tac Toe</h1>
-            </div>
             <div>
                 <h1>This Game Have 2 Types</h1>
                 <h2>Please Select One And Play The Game</h2>
@@ -105,11 +102,11 @@
                 box.classList.add(currentPlayer)
 
                 if (winnerCheck(currentPlayer)) {
-                    if(singlePlayer){
+                    if (singlePlayer) {
                         resultText.innerHTML = "You Win The Game"
                         singlePlayer = false;
                         result.classList.remove("inactive")
-                    }else{
+                    } else {
                         resultText.innerHTML = currentPlayer + " Win The Game"
                         result.classList.remove("inactive")
                     }
@@ -120,7 +117,7 @@
                 swapPlayer()
 
                 if (singlePlayer) {
-                    
+
                     cpuTurn()
                 }
             }

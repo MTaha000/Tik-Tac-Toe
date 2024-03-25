@@ -1,32 +1,37 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-.main-display{
+.main-display {
     height: 100vh;
     width: 100vw;
-    background-image: url("../Images/bg1.jpg");
+    background-image: url("../Images/bg2.webp");
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size:100% 100%;
-    
+    background-size: 100% 100%;
+
 }
-.main-display .heading{
+
+.main-display .heading {
     width: 100%;
     height: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     font-size: 25px;
     color: white;
 }
-.title {
-    font-size: 50px;
+
+.main-display .heading div {
+    background-color: rgb(17, 15, 41);
+    padding: 20px 50px;
+    border-radius: 50px;
 }
-.displaybtn{
+
+.displaybtn {
     width: 100%;
     height: 50%;
     display: flex;
@@ -34,7 +39,8 @@
     justify-content: center;
     align-items: center;
 }
-.singlebtn{
+
+.singlebtn {
     padding: 10px 50px;
     font-size: 25px;
     font-weight: 900;
@@ -45,7 +51,8 @@
     background-size: 100% 100%;
     color: white;
 }
-.doublebtn{
+
+.doublebtn {
     padding: 10px 50px;
     font-size: 25px;
     font-weight: 900;
@@ -56,17 +63,19 @@
     background-size: 100% 100%;
     color: white;
 }
+
 /*Main-Game */
-.main-container{
+.main-container {
     background-color: rgb(20, 25, 37);
     background-size: 100% 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    
+
 }
-.playersturn{
+
+.playersturn {
     display: flex;
     justify-content: space-around;
     border: 5px solid rgb(187, 184, 184);
@@ -78,16 +87,8 @@
     height: 60px;
     padding: 5px;
 }
-.player1{
-    text-align: center;
-    border: 1px solid rgb(187, 184, 184);
-    padding: 10px 15px;
-    border-radius: 10px;
-    margin: 1px 2px;
-    width: 50%;
-   color: rgb(20, 25, 37);
-}
-.player2{
+
+.player1 {
     text-align: center;
     border: 1px solid rgb(187, 184, 184);
     padding: 10px 15px;
@@ -96,26 +97,39 @@
     width: 50%;
     color: rgb(20, 25, 37);
 }
-.active{
+
+.player2 {
+    text-align: center;
+    border: 1px solid rgb(187, 184, 184);
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 1px 2px;
+    width: 50%;
+    color: rgb(20, 25, 37);
+}
+
+.active {
     background-color: rgb(124, 6, 98);
     color: white;
     font-weight: 600;
 }
 
 /*Game-Board Start*/
-.game-board{
-display: flex;
-align-items: center;
-width: 100%;
-justify-content: center;
+.game-board {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
 }
-.boxes{
+
+.boxes {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 500px;
 }
-.box{
+
+.box {
     width: 150px;
     height: 150px;
     border: 4px solid rgb(229, 231, 238);
@@ -123,47 +137,58 @@ justify-content: center;
     border-radius: 10%;
     text-align: center;
 }
-.box:nth-child(1){
+
+.box:nth-child(1) {
     border-top: none;
     border-left: none;
 }
-.box:nth-child(3){
+
+.box:nth-child(3) {
     border-top: none;
-    
+
 }
-.box:nth-child(2){
+
+.box:nth-child(2) {
     border-top: none;
 }
-.box:nth-child(3n){
+
+.box:nth-child(3n) {
     border-right: none;
 }
-.box:nth-child(4){
+
+.box:nth-child(4) {
     border-left: none;
 }
-.box:nth-child(6){
+
+.box:nth-child(6) {
     border-right: none;
 }
-.box:nth-child(7){
+
+.box:nth-child(7) {
     border-left: none;
     border-bottom: none;
 }
-.box:nth-child(8){
+
+.box:nth-child(8) {
     border-bottom: none;
 }
-.box:nth-child(9){
+
+.box:nth-child(9) {
     border-bottom: none;
 }
 
 
 
 
-.O{
+.O {
     color: rgb(108, 230, 92);
 }
-.X{
+
+.X {
     color: rgb(243, 235, 121);
 }
-.result{
+
+.result {
     position: fixed;
     top: 0;
     left: 0;
@@ -174,20 +199,23 @@ justify-content: center;
     justify-content: center;
     align-items: center;
     z-index: 99;
-    background: rgb(0, 0, 0,0.6);
+    background: rgb(0, 0, 0, 0.6);
     color: white;
 }
-.inactive{
+
+.inactive {
     display: none;
 }
-.result h1{
+
+.result h1 {
     font-size: 50px;
     font-weight: 900;
     padding: 10px 20px;
     border-radius: 50px;
-    background: rgb(0,0,0,0.6);
+    background: rgb(0, 0, 0, 0.6);
 }
-.result button{
+
+.result button {
     padding: 10px 20px;
     font-size: 20px;
     font-weight: 600;
@@ -196,6 +224,7 @@ justify-content: center;
     background-color: rgb(12, 34, 7);
     color: white;
 }
-.disable{
+
+.disable {
     pointer-events: none;
 }
