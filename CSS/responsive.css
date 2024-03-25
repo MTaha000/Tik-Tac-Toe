@@ -99,17 +99,14 @@
 }
 .playersturn{
     font-size: 14px;
-    width: 150px;
+    width: 200px;
+    height: 55px;
 }
 .player1{
     padding: 10px 10px;
-   
-   
 }
 .player2{
     padding: 10px 10px;
-   
-    
 }
 }
 
