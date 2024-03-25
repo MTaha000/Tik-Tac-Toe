@@ -51,14 +51,6 @@
         font-size: 18px;
     }
 
-    .main-display {
-        background-attachment: fixed;
-        background-position: ;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-
-    }
-
     .main-display .heading div {
         text-align: center;
         font-size: 12px;
