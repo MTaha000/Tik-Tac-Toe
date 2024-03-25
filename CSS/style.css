@@ -58,8 +58,8 @@
 }
 /*Main-Game */
 .main-container{
-    background-color: rgb(215, 240, 241);
-    background: url(../Images/bg11.avif);
+    background-color: rgb(20, 25, 37);
+    /* background: url(../Images/bg11.avif); */
     background-size: 100% 100%;
     display: flex;
     flex-direction: column;
