@@ -16,9 +16,9 @@
                 <h1>Tic Tac Toe</h1>
             </div>
             <div>
-            <h1>This Game Have 2 Types</h1>
-            <h2>Please Select One And Play The Game</h2>
-        </div>
+                <h1>This Game Have 2 Types</h1>
+                <h2>Please Select One And Play The Game</h2>
+            </div>
         </div>
         <div class="displaybtn">
             <button class="singlebtn" onclick="singlePlay()">Single Play</button>
@@ -52,15 +52,18 @@
         let mainContainer = document.querySelector(".main-container")
         let mainDisplay = document.querySelector(".main-display")
         let singlePlayer = false
-        function singlePlay(){
+
+        function singlePlay() {
             mainDisplay.classList.add("inactive")
             mainContainer.classList.remove("inactive")
+            player1.innerHTML = "Your-Turn"
+            player2.innerHTML = "CPU-Turn"
             singlePlayer = true;
         }
-        function doublePlay(){
+        function doublePlay() {
             mainDisplay.classList.add("inactive")
             mainContainer.classList.remove("inactive")
-            
+
         }
 
         let boxElements = document.querySelectorAll(".box")
@@ -69,6 +72,7 @@
         let playerO = "O"
         let playerX = "X"
         let toggleTurn = true;
+
         let winningConditions = [
             [0, 1, 2],
             [3, 4, 5],
@@ -79,60 +83,79 @@
             [0, 4, 8],
             [2, 4, 6]
         ]
+
         let result = document.querySelector(".result")
         let resultText = document.querySelector(".result h1")
+
         let currentPlayer;
-          currentPlayer = toggleTurn ? playerO : playerX
-        
-        
+        currentPlayer = toggleTurn ? playerO : playerX
+
+
         boxElements.forEach(box => {
-            
-            
+
             box.onclick = () => {
-                if(singlePlayer && currentPlayer == playerX){
-                   
-                    return 
+
+                if (singlePlayer && currentPlayer == playerX) {
+
+                    return
                 }
-            
+
                 box.classList.add("disable")
                 box.innerHTML = currentPlayer
                 box.classList.add(currentPlayer)
+
                 if (winnerCheck(currentPlayer)) {
-                    resultText.innerHTML = currentPlayer + " Win The Game"
-                    result.classList.remove("inactive")
+                    if(singlePlayer){
+                        resultText.innerHTML = "You Win The Game"
+                        singlePlayer = false;
+                        result.classList.remove("inactive")
+                    }else{
+                        resultText.innerHTML = currentPlayer + " Win The Game"
+                        result.classList.remove("inactive")
+                    }
                 } else if (isDraw()) {
                     resultText.innerHTML = "Draw The Game"
                     result.classList.remove("inactive")
                 }
                 swapPlayer()
-            if(singlePlayer && result.classList.contains("inactive")){
-                cpuTurn()
-                if (winnerCheck(playerX)) {
-                    resultText.innerHTML = playerX + " Win The Game"
-                    result.classList.remove("inactive")
-                } else if (isDraw()) {
-                    resultText.innerHTML = "Draw The Game"
-                    result.classList.remove("inactive")
+
+                if (singlePlayer) {
+                    
+                    cpuTurn()
                 }
             }
-        }
         })
-        function cpuTurn(){
-            let cpu =  Math.floor( Math.random() * 9 )
+
+        // CPU Turn Function 
+
+        function cpuTurn() {
+
+            let cpu = Math.floor(Math.random() * 9)
             let cpuBox = boxElements[cpu]
-            if(!cpuBox.classList.contains("disable")){
-                setTimeout(()=>{
-                    
+
+            if (!cpuBox.classList.contains("disable")) {
+
+                setTimeout(() => {
                     cpuBox.innerHTML = playerX
                     cpuBox.classList.add("disable")
                     cpuBox.classList.add(playerX)
+                    if (winnerCheck(playerX)) {
+                        resultText.innerHTML = "CPU Win The Game"
+                        result.classList.remove("inactive")
+                    } else if (isDraw()) {
+                        resultText.innerHTML = "Draw The Game"
+                        result.classList.remove("inactive")
+                    }
                     swapPlayer()
-                },1000)
-               
-            }else{
+                }, 1000)
+
+            } else {
                 cpuTurn()
             }
         }
+
+        // Change Player Function 
+
         function swapPlayer() {
             toggleTurn = !toggleTurn
             if (toggleTurn) {
@@ -145,6 +168,8 @@
             currentPlayer = toggleTurn ? playerO : playerX
         }
 
+        // Game Winner Function 
+
         function winnerCheck(currentPlayer) {
             return winningConditions.some(condition => {
 
@@ -155,10 +180,12 @@
             })
         }
 
+        // Game Draw Function 
+
         function isDraw() {
 
             return Array.from(boxElements).every(cell => {
-                
+
                 return cell.classList.contains(playerO) || cell.classList.contains(playerX)
 
             })
