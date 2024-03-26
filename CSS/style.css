@@ -67,12 +67,11 @@
 /*Main-Game */
 .main-container {
     background-color: rgb(20, 25, 37);
-    background-size: 100% 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     height: 100vh;
-
 }
 
 .playersturn {
@@ -81,8 +80,6 @@
     border: 5px solid rgb(187, 184, 184);
     font-size: 20px;
     border-radius: 15px;
-    margin-top: 100px;
-    margin-bottom: 150px;
     width: 280px;
     height: 60px;
     padding: 5px;
@@ -120,6 +117,7 @@
     align-items: center;
     width: 100%;
     justify-content: center;
+    margin-bottom: 100px;
 }
 
 .boxes {
